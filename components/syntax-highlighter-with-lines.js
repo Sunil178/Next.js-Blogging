@@ -3,12 +3,6 @@ import ReactMarkdown from 'react-markdown'
 import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter'
 import rangeParser from 'parse-numeric-range'
 import { oneDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
-import tsx from 'react-syntax-highlighter/dist/cjs/languages/prism/tsx'
-import typescript from 'react-syntax-highlighter/dist/cjs/languages/prism/typescript'
-import scss from 'react-syntax-highlighter/dist/cjs/languages/prism/scss'
-import bash from 'react-syntax-highlighter/dist/cjs/languages/prism/bash'
-import markdown from 'react-syntax-highlighter/dist/cjs/languages/prism/markdown'
-import json from 'react-syntax-highlighter/dist/cjs/languages/prism/json'
 
 export default function PrismHigLighter({ markdownContent }) {
   const syntaxTheme = oneDark
@@ -54,7 +48,7 @@ export default function PrismHigLighter({ markdownContent }) {
     },
   }
 
-  const [markdownContentState, setmarkdownContentState] = useState('text')
+  const [markdownContentState, setmarkdownContentState] = useState('')
   useEffect(() => setmarkdownContentState(markdownContent), [])
   return (
     <div className="container">

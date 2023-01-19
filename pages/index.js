@@ -1,22 +1,26 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import PrismHigLighterRaw from '../components/syntax-highlighter-raw'
+import PrismHigLighterLine from '../components/syntax-highlighter-with-lines'
+import PrismHigLighterRenderer from '../components/syntax-highlighter-prism-react-renderer'
 import PrismHigLighter from '../components/syntax-highlighter'
 
 export default function Home() {
-  const markdownContent = `
+  var markdownContent = `
 \`\`\`js
 function add(a, b, c) {
   return a + b + c;
 }
 \`\`\`
 `
-const javascript = `
+// markdownContent = `## Hello`
+
+const javascriptCodeBlock = `
 function add(a, b, c) {
   return a + b + c;
 }
 `
-const htmlCode = `
+const htmlCodeBlock = `
     <div>
       <h1> PrismJS Tutorial </h1>
       <p>
@@ -34,11 +38,12 @@ const htmlCode = `
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {/* <PrismHigLighter markdownContent={markdownContent} /> */}
-      <PrismHigLighter markdownContent={javascript} />
-      {/* <PrismHigLighterRaw code={javascript} language="javascript" /> */}
-      {/* <PrismHigLighterRaw code={htmlCode} language="html" /> */}
-      
+      <PrismHigLighter markdownContent={markdownContent} />
+      {/* <PrismHigLighterLine markdownContent={markdownContent} />
+      <PrismHigLighterRenderer codeblock={javascriptCodeBlock} language="javascript" />
+      <PrismHigLighterRenderer codeblock={htmlCodeBlock} language="html" />
+      <PrismHigLighterRaw code={javascriptCodeBlock} language="javascript" />
+      <PrismHigLighterRaw code={htmlCodeBlock} language="html" /> */}
     </>
   )
 }
