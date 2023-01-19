@@ -1,14 +1,21 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import PrismHigLighterRaw from '../components/syntax-highlighter-raw'
 import PrismHigLighter from '../components/syntax-highlighter'
 
 export default function Home() {
-  const javascript = `
+  const markdownContent = `
+\`\`\`js
+function add(a, b, c) {
+  return a + b + c;
+}
+\`\`\`
+`
+const javascript = `
 function add(a, b, c) {
   return a + b + c;
 }
 `
-
 const htmlCode = `
     <div>
       <h1> PrismJS Tutorial </h1>
@@ -27,8 +34,10 @@ const htmlCode = `
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <PrismHigLighter code={javascript} language="javascript" />
-      <PrismHigLighter code={htmlCode} language="html" />
+      {/* <PrismHigLighter markdownContent={markdownContent} /> */}
+      <PrismHigLighter markdownContent={javascript} />
+      {/* <PrismHigLighterRaw code={javascript} language="javascript" /> */}
+      {/* <PrismHigLighterRaw code={htmlCode} language="html" /> */}
       
     </>
   )
