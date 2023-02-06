@@ -5,6 +5,8 @@ import '../plugin/prism-line-numbers.min.js'
 
 export default function PrismHigLighter({ markdownContent }) {
 
+  console.log(markdownContent);
+
   const MarkdownComponents = {
     code({ node, inline, className, ...props }) {
       return (

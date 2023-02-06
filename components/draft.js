@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 
-import { stateToMarkdown } from 'draft-js-export-markdown';
-import { mdToDraftjs, draftjsToMd } from 'draftjs-md-converter';
 import { markdownToDraft, draftToMarkdown } from 'markdown-draft-js';
 
 import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
@@ -30,10 +28,7 @@ function ReactDraft() {
 
   useEffect(() => {
     const rawContentState = convertToRaw(editorState.getCurrentContent());
-    // const markup = draftjsToMd(rawContentState);
     const markup = draftToMarkdown(rawContentState, { preserveNewlines: true });
-		// const markup = stateToMarkdown(editorState.getCurrentContent());
-		console.log(markup);
     setConvertedContent(markup);
 	}, [editorState]);
 	
