@@ -1,6 +1,11 @@
+.ReactDraft {
+  width: 50%;
+}
+
 .ReactDraft-header {
     background-color: #282c34;
     min-height: 5vh;
+    /* width: 50%; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,6 +31,5 @@
 }
 
 .preview {
-  padding: 1rem;
-  margin-top: 1rem;
+  background-color:lightgray;
 }
