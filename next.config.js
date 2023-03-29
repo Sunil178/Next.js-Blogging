@@ -2,13 +2,13 @@
 
 const path = require("path");
 const CopyPlugin = require("copy-webpack-plugin");
+// const dbConnect = require('./libs/db-connect');
+
+// dbConnect();
 
 const nextConfig = {
   reactStrictMode: false,
   swcMinify: true,
-  future: {
-    webpack5: true,
-  },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.plugins.push(
       new CopyPlugin({
@@ -20,9 +20,6 @@ const nextConfig = {
         ],
       })
     );
-    return config;
-  },
-  webpackDevMiddleware: (config) => {
     return config;
   },
 }

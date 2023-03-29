@@ -1,22 +1,24 @@
 import { Editor } from "@tinymce/tinymce-react";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
-export function CustomEditor(props) {
+export function TinyMCEEditor(props) {
   const editorRef = useRef(null);
   const log = () => {
     if (editorRef.current) {
       console.log(editorRef.current.getContent());
     }
   };
-  return (
+  const [text, setText] = useState('');
+  return <>
     <Editor
+      id="YOUR_FIXED_ID"
       tinymceScriptSrc={"/assets/libs/tinymce/tinymce.min.js"}
       onInit={(evt, editor) => (editorRef.current = editor)}
       value={props.content}
       init={{
         branding: false,
-        forced_root_block: "",
-        force_br_newlines : true,
+        forced_root_block: false,
+        force_br_newlines : false,
         force_p_newlines : false,
         height: 500,
         menubar: true,
@@ -77,10 +79,11 @@ export function CustomEditor(props) {
           "alignright alignjustify | bullist numlist outdent indent | " +
           "removeformat | codesample | help",
         setup: (editor) => editor.addShortcut('access+c', 'Open Codeblock', 'codesample'),
-        content_style:
-          "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+        content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
       }}
-      onEditorChange={props.handleOnEditorChange}
+      outputFormat='text'
+      // onEditorChange={(newText) => { console.log(newText); setText(newText) }}
     />
-  );
+    <div>{text}</div>
+    </>;
 }
