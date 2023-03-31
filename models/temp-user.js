@@ -1,7 +1,7 @@
 import mongoose_delete from 'mongoose-delete';
-import mongoose from 'mongoose'
+import { Schema, models, model } from 'mongoose';
 
-const schema = new mongoose.Schema(
+const schema = new Schema(
   {
     avatar: String,
     visitorId: String,                          // fingerprint.js id
@@ -13,4 +13,4 @@ const schema = new mongoose.Schema(
 
 schema.plugin(mongoose_delete, { deletedAt : true, overrideMethods: true });
 
-module.exports = mongoose.models?.TempUser || mongoose.model('TempUser', schema, 'temp_users');
+module.exports = models?.TempUser || model('TempUser', schema, 'temp_users');

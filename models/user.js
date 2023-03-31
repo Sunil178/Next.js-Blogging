@@ -1,9 +1,9 @@
 import mongoose_delete from 'mongoose-delete';
-import mongoose from 'mongoose'
+import { Schema, models, model } from 'mongoose';
 
-const schema = new mongoose.Schema(
+const schema = new Schema(
   {
-    tempUserId: { type: mongoose.Schema.Types.ObjectId, ref: "TempUser" },
+    tempUserId: { type: Schema.Types.ObjectId, ref: "TempUser" },
     firstName: String,
     middleName: String,
     lastName: String,
@@ -24,4 +24,4 @@ const schema = new mongoose.Schema(
 
 schema.plugin(mongoose_delete, { deletedAt : true, overrideMethods: true });
 
-module.exports = mongoose.models?.User || mongoose.model('User', schema, 'users');
+module.exports = models?.User || model('User', schema, 'users');

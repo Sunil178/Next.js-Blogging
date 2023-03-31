@@ -3,9 +3,9 @@ import { Schema, models, model } from 'mongoose';
 
 const schema = new Schema(
   {
-    tempUserId: { type: Schema.Types.ObjectId, ref: "TempUser" },
     userId: { type: Schema.Types.ObjectId, ref: "User" },
-    postId: { type: Schema.Types.ObjectId, ref: "Post" },
+    commentId: { type: Schema.Types.ObjectId, ref: "Comment" },
+    type: Boolean,                                                  //  true: liked / up, false: unliked / down
   },
   {
     timestamps: true,
@@ -14,4 +14,4 @@ const schema = new Schema(
 
 schema.plugin(mongoose_delete, { deletedAt : true, overrideMethods: true });
 
-module.exports = models?.UserInterest || model('UserInterest', schema, 'user_interests');
+module.exports = models?.CommentVote || model('CommentVote', schema, 'comment_votes');
