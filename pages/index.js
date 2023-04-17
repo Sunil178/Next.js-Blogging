@@ -1,33 +1,18 @@
 
 import { TinyMCEEditor } from '../components/tinymce'
 import dbConnect from '../libs/db-connect';
-import TempUser from '../models/temp-user'
-import User from '../models/user'
-import UserInterest from '../models/user-interest'
-import Post from '../models/post'
-import Category from '../models/category'
-import Comment from '../models/comment'
-import UserVote from '../models/user-vote'
-import PostVote from '../models/post-vote'
-import CommentVote from '../models/comment-vote'
+import Post from '../models/post';
 
-export default function Home() {
+export default function Home({ content }) {
   return (
-	    <TinyMCEEditor content=''/>
+	    <TinyMCEEditor content={content} />
     )
 }
 
 export async function getStaticProps(context) {
   await dbConnect();
-  TempUser.find();
-  User.find();
-  Post.find();
-  UserInterest.find();
-  Category.find();
-  Comment.find();
-  UserVote.find();
-  PostVote.find();
-  CommentVote.find();
+  const post = await Post.findOne({}, {}, { sort: { 'createdAt' : -1 } });
+  console.log(post);
 
-  return { props: {} };
+  return { props: { content: post.content } };
 }

@@ -1,17 +1,37 @@
-export default function handler(req, res) {
-  // Get data submitted in request's body.
+import dbConnect from '../../libs/db-connect';
+import Post from '../../models/post'
+
+export default async function handler(req, res) {
+  const { method } = req
   const body = req.body
 
-  // Optional logging to see the responses
-  // in the command line where next.js app is running.
   console.log('body: ', body)
 
   if (!body.post_data) {
-    // Sends a HTTP bad request error code
     return res.status(400).json({ data: 'Post page data is required' })
   }
 
-  // Found the name.
-  // Sends a HTTP success code
+  await dbConnect();
+  console.log('Post: ', await Post.find())
+
+  switch (method) {
+    case 'GET':
+        res.status(405).send("Method not allowed")
+        break
+    case 'POST':
+      try {
+        await Post.create({
+          'content': body.post_data,
+        })
+        return res.redirect(301, '/')
+      } catch (error) {
+        res.status(400).json({ success: false, data: error })
+      }
+      break
+    default:
+      res.status(400).json({ success: false })
+      break
+  }
+
   res.status(200).json({ data: `${body.post_data}` })
 }
