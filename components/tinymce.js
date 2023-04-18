@@ -8,6 +8,31 @@ export function TinyMCEEditor(props) {
       console.log(editorRef.current.getContent());
     }
   };
+
+  const filePickerCallback = (cb, value, meta) => {
+    var input = document.createElement('input');
+    input.setAttribute('type', 'file');
+    input.setAttribute('accept', 'image/*');
+
+    input.onchange = function () {
+      var file = this.files[0];
+
+      var reader = new FileReader();
+      reader.onload = function () {
+        var id = 'blobid' + (new Date()).getTime();
+        var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
+        var base64 = reader.result.split(',')[1];
+        var blobInfo = blobCache.create(id, file, base64);
+        blobCache.add(blobInfo);
+
+        cb(blobInfo.blobUri(), { title: file.name });
+      };
+      reader.readAsDataURL(file);
+    };
+
+    input.click();
+  }
+
   const [text, setText] = useState('');
   return <>
     <form action="/api/store-post" method="post" id="post-form">
@@ -20,7 +45,6 @@ export function TinyMCEEditor(props) {
           document.querySelector('.tox-toolbar__primary').lastChild.firstChild.classList.add('submit-btn');
           document.querySelector('.tox-toolbar__primary').lastChild.classList.add('submit-btn-container');
         }}
-        value={props.content}
         init={{
           branding: false,
           forced_root_block: false,
@@ -108,30 +132,8 @@ export function TinyMCEEditor(props) {
           image_caption: true,
           image_advtab: true,
           image_uploadtab: true,
-          file_picker_callback: function (cb, value, meta) {
-            var input = document.createElement('input');
-            input.setAttribute('type', 'file');
-            input.setAttribute('accept', 'image/*');
-        
-            input.onchange = function () {
-              var file = this.files[0];
-        
-              var reader = new FileReader();
-              reader.onload = function () {
-
-                var id = 'blobid' + (new Date()).getTime();
-                var blobCache =  tinymce.activeEditor.editorUpload.blobCache;
-                var base64 = reader.result.split(',')[1];
-                var blobInfo = blobCache.create(id, file, base64);
-                blobCache.add(blobInfo);
-        
-                cb(blobInfo.blobUri(), { title: file.name });
-              };
-              reader.readAsDataURL(file);
-            };
-        
-            input.click();
-          },
+          init_instance_callback: (editor) => editor.setContent(props.content),
+          file_picker_callback: filePickerCallback,
           content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px; background-color: #fdfdfd; }",
         }}
         outputFormat='text'

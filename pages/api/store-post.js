@@ -23,7 +23,7 @@ export default async function handler(req, res) {
         await Post.create({
           'content': body.post_data,
         })
-        return res.redirect(301, '/')
+        return res.redirect(301, '/post')
       } catch (error) {
         res.status(400).json({ success: false, data: error })
       }
