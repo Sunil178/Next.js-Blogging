@@ -1,8 +1,11 @@
 body {
     background-color: #eaeaea;
-    padding-top: 2vw;
-    padding-left: 5vw;
-    padding-right: 5vw;
+}
+
+.editor {
+  padding-top: 2vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
 .centered {

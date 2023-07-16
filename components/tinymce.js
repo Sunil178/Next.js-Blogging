@@ -1,5 +1,6 @@
 import { Editor } from "@tinymce/tinymce-react";
 import React, { useRef, useState } from "react";
+import { TinyOptions } from './tinymce-constants';
 
 export function TinyMCEEditor(props) {
   const editorRef = useRef(null);
@@ -42,8 +43,8 @@ export function TinyMCEEditor(props) {
         tinymceScriptSrc={"/assets/libs/tinymce/tinymce.min.js"}
         onInit={(evt, editor) => {
           editorRef.current = editor;
-          document.querySelector('.tox-toolbar__primary').lastChild.firstChild.classList.add('submit-btn');
-          document.querySelector('.tox-toolbar__primary').lastChild.classList.add('submit-btn-container');
+          document.querySelector('.tox-toolbar-overlord').firstChild.lastChild.firstChild.classList.add('submit-btn');
+          document.querySelector('.tox-toolbar-overlord').firstChild.lastChild.classList.add('submit-btn-container');
         }}
         init={{
           branding: false,
@@ -53,66 +54,12 @@ export function TinyMCEEditor(props) {
           height: '90vh',
           menubar: true,
           promotion: false,
-          plugins: [
-            "advlist",
-            "autolink",
-            "lists",
-            "link",
-            "image",
-            "charmap",
-            "preview",
-            "anchor",
-            "searchreplace",
-            "visualblocks",
-            "visualchars",
-            "code",
-            "fullscreen",
-            "insertdatetime",
-            "media",
-            "table",
-            "code",
-            "help",
-            "wordcount",
-            "codesample",
-            "autoresize",
-            "autosave",
-            "emoticons",
-            "quickbars",
-          ],
-          toolbar:
-            "undo redo | blocks | " +
-            "bold italic forecolor | alignleft aligncenter " +
-            "alignright alignjustify | bullist numlist outdent indent | emoticons | " +
-            "removeformat | codesample | restoredraft | help | fullscreen | hr | image | table | searchreplace | submit",
-          codesample_languages: [
-            {text: 'HTML/XML', value: 'markup'},
-            {text: 'JavaScript', value: 'javascript'},
-            {text: 'CSS', value: 'css'},
-            {text: 'PHP', value: 'php'},
-            {text: 'Ruby', value: 'ruby'},
-            {text: 'Python', value: 'python'},
-            {text: 'Java', value: 'java'},
-            {text: 'C', value: 'c'},
-            {text: 'C#', value: 'csharp'},
-            {text: 'C++', value: 'cpp'},
-            {text: 'Bash', value: 'bash'},
-            {text: 'Perl', value: 'perl'},
-          ],
+          plugins: TinyOptions.plugins,
+          toolbar1: TinyOptions.toolbar1,
+          toolbar2: TinyOptions.toolbar2,
+          codesample_languages: TinyOptions.codesample_languages,
           codesample_global_prismjs: true,
-          text_patterns: [
-            {start: '*', end: '*', format: 'italic'},
-            {start: '**', end: '**', format: 'bold'},
-            {start: '#', format: 'h1'},
-            {start: '##', format: 'h2'},
-            {start: '###', format: 'h3'},
-            {start: '####', format: 'h4'},
-            {start: '#####', format: 'h5'},
-            {start: '######', format: 'h6'},
-            {start: '1. ', cmd: 'InsertOrderedList'},
-            {start: '* ', cmd: 'InsertUnorderedList'},
-            {start: '- ', cmd: 'InsertUnorderedList'},
-            {start: '//brb', replacement: 'Be Right Back'}
-          ],
+          text_patterns: TinyOptions.text_patterns,
           setup: (editor) => {
             editor.addShortcut('access+c', 'Open Codeblock', 'codesample');
             editor.ui.registry.addButton('submit', {
