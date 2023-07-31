@@ -2217,7 +2217,7 @@
         const node = getSelectedCodeSample(editor);
         code = global$1.DOM.encode(code);
         return node.fold(() => {
-          editor.insertContent('<pre id="__new" class="language-' + language + '">' + code + '</pre>');
+          editor.insertContent('<pre id="__new" class="language-' + language + ' line-numbers">' + code + '</pre>');
           const newPre = dom.select('#__new')[0];
           dom.setAttrib(newPre, 'id', null);
           editor.selection.select(newPre);

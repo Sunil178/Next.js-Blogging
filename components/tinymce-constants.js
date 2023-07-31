@@ -9,6 +9,8 @@ export const TinyOptions = {
         "alignright alignjustify | bullist numlist outdent indent | submit",
     toolbar2: "emoticons | removeformat | codesample | restoredraft | help | fullscreen | hr | image | table | searchreplace",
     codesample_languages: [
+        {text: 'Text', value: 'text'},
+        {text: 'JSON', value: 'json'},
         {text: 'HTML/XML', value: 'markup'},
         {text: 'JavaScript', value: 'javascript'},
         {text: 'CSS', value: 'css'},

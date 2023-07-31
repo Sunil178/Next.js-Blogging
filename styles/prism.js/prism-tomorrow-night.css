@@ -259,7 +259,8 @@ pre[class*="language-"].line-numbers > code {
 	content: '\240D';
 }
 
-.token.crlf:before {
+/* Removing these css for extra dots (Manual change) */
+/* .token.crlf:before {
 	content: '\240D\240A';
 }
 .token.lf:before {
@@ -268,7 +269,7 @@ pre[class*="language-"].line-numbers > code {
 
 .token.space:before {
 	content: '\00B7';
-}
+} */
 
 .token a {
 	color: inherit;
