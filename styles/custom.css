@@ -1,3 +1,18 @@
+
+:root {
+  --color-background: white;
+  --color-accent: #fab700;
+  --size-bezel: 0.5rem;
+  --size-radius: 4px;
+  line-height: 1.4;
+  font-size: calc(0.6rem + 0.4vw);
+  font-weight: 300;
+  padding: 0 calc(var(--size-bezel) * 3);
+}
+
+* {
+  font-family: "Roboto";
+}
 body {
     background-color: #eaeaea;
 }
@@ -50,3 +65,13 @@ body {
     padding: 0.25em 0.75em !important;
   }
 }
+
+.label {
+  font-size: 30px;
+  font-weight: bold;
+  display: block;
+  padding-bottom: 3px;
+  padding-top: 20px;
+  padding-left: 8px;
+}
+

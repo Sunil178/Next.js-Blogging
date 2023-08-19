@@ -1,3 +1,4 @@
+import "@fontsource/roboto/400.css";
 // import '../styles/globals.css'
 import '../styles/custom.css'
 import '../styles/prism.js/prism-tomorrow-night.css'
