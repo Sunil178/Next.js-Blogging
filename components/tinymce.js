@@ -1,5 +1,5 @@
 import { Editor } from "@tinymce/tinymce-react";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { TinyOptions } from './tinymce-constants';
 
 export function TinyMCEEditor(props) {

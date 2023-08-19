@@ -10,6 +10,7 @@ const schema = new Schema(
     title: String,
     titleDescription: String,
     tags: Array,
+    bannerImage: String,
     content: String,
     summary: String,
     upvoteCount: Number,
