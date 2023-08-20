@@ -1,26 +1,25 @@
-
 :root {
-  --color-background: white;
-  --color-accent: #fab700;
-  --size-bezel: 0.5rem;
-  --size-radius: 4px;
-  line-height: 1.4;
-  font-size: calc(0.6rem + 0.4vw);
-  font-weight: 300;
-  padding: 0 calc(var(--size-bezel) * 3);
+    --color-background: white;
+    --color-accent: #fab700;
+    --size-bezel: 0.5rem;
+    --size-radius: 4px;
+    line-height: 1.4;
+    font-size: calc(0.6rem + 0.4vw);
+    font-weight: 300;
+    padding: 0 calc(var(--size-bezel) * 3);
 }
 
 * {
-  font-family: "Roboto";
+    font-family: "Roboto";
 }
 body {
     background-color: #eaeaea;
 }
 
 .editor {
-  padding-top: 2vw;
-  padding-left: 5vw;
-  padding-right: 5vw;
+    padding-top: 2vw;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 .centered {
@@ -38,40 +37,39 @@ body {
 }
 
 .submit-btn {
-  font-family: "Open Sans", sans-serif !important;
-  font-size: 16px !important;
-  letter-spacing: 2px !important;
-  text-decoration: none !important;
-  text-transform: uppercase !important;
-  color: #000 !important;
-  cursor: pointer !important;
-  border: 3px solid !important;
-  padding: 0.25em 0.5em !important;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px !important;
-  position: relative !important;
-  user-select: none !important;
-  -webkit-user-select: none !important;
-  touch-action: manipulation !important;
+    font-family: "Open Sans", sans-serif !important;
+    font-size: 16px !important;
+    letter-spacing: 2px !important;
+    text-decoration: none !important;
+    text-transform: uppercase !important;
+    color: #000 !important;
+    cursor: pointer !important;
+    border: 3px solid !important;
+    padding: 0.25em 0.5em !important;
+    box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px !important;
+    position: relative !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    touch-action: manipulation !important;
 }
 
 .submit-btn:active {
-  box-shadow: 0px 0px 0px 0px !important;
-  top: 5px !important;
-  left: 5px !important;
+    box-shadow: 0px 0px 0px 0px !important;
+    top: 5px !important;
+    left: 5px !important;
 }
 
 @media (min-width: 768px) {
-  .submit-btn {
-    padding: 0.25em 0.75em !important;
-  }
+    .submit-btn {
+        padding: 0.25em 0.75em !important;
+    }
 }
 
 .label {
-  font-size: 30px;
-  font-weight: bold;
-  display: block;
-  padding-bottom: 3px;
-  padding-top: 20px;
-  padding-left: 8px;
+    font-size: 30px;
+    font-weight: bold;
+    display: block;
+    padding-bottom: 3px;
+    padding-top: 20px;
+    padding-left: 8px;
 }
-

@@ -57,6 +57,7 @@ export const PostTag = () => {
           handleAddition={handleAddition}
           handleDrag={handleDrag}
           handleTagClick={handleTagClick}
+          autofocus={false}
         />
       </div>
   );

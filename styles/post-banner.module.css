@@ -1,0 +1,79 @@
+.bannerUpload {
+    position: relative;
+    max-width: 20%;
+}
+.bannerUpload .image {
+    object-fit: contain;
+    position: relative !important;
+    height: unset !important;
+}
+.bannerUpload .bannerEdit {
+    position: absolute;
+    right: 12px;
+    z-index: 1;
+    top: 10px;
+}
+.bannerUpload .bannerEdit input {
+    display: none;
+}
+.bannerUpload .bannerEdit input + label {
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    margin-bottom: 0;
+    border-radius: 100%;
+    background: #ffffff;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    font-weight: normal;
+    transition: all 0.2s ease-in-out;
+}
+.bannerUpload .bannerEdit input + label:hover {
+    background: #f1f1f1;
+    border-color: #d6d6d6;
+}
+.bannerUpload .bannerEdit input + label svg {
+    color: #757575;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+}
+.bannerUpload .bannerPreview img {
+	width: 100%;
+	height: auto !important;
+}
+
+.bannerUpload .bannerLoader {
+    position: absolute;
+    left: 43%;
+    z-index: 1;
+    top: 35%;
+}
+.bannerUpload .bannerDelete {
+    position: absolute;
+    right: 12px;
+    z-index: 1;
+    top: 55px;
+}
+.bannerDeleteBtn {
+    width: 34px;
+    height: 34px;
+    border-radius: 100%;
+    background: #ffffff;
+    color: #DC3545;
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .bannerUpload {
+        max-width: 80%;
+    }
+}

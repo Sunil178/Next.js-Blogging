@@ -1,6 +1,6 @@
 import { TinyMCEEditor } from '../components/tinymce'
 import { PostTag } from '../components/post-tags'
-import { BannerImage } from '../components/image-uploader'
+import { BannerImage } from '../components/post-banner'
 import dbConnect from '../libs/db-connect'
 import Post from '../models/post'
 import styles from '../styles/post.module.css'
@@ -12,7 +12,7 @@ export default function Home({ content }) {
           <div className={styles.cardContainer}>
             <div className={styles.card}>
 
-              <BannerImage />
+              <BannerImage defaultImage={null} />
 
               <h2 className={styles.head}>Title</h2>
               <label className={styles.input}>
