@@ -13,14 +13,40 @@ const schema = new Schema(
     bannerImage: String,
     content: String,
     summary: String,
-    upvoteCount: Number,
-    downvoteCount: Number,
-    commentCount: Number,
-    visibility: Boolean,
-    published: Boolean,
+    upvoteCount: {
+      type: Number,
+      default: 0,
+    },
+    downvoteCount: {
+      type: Number,
+      default: 0,
+    },
+    commentCount: {
+      type: Number,
+      default: 0,
+    },
+    visibility: {
+      type: Boolean,
+      default: false,
+    },
+    published: {
+      type: Boolean,
+      default: false,
+    },
     publishedAt: Date,
-    visitorCount: Number,
-    approved: Boolean,
+    visitorCount: {
+      type: Number,
+      default: 0,
+    },
+    approval: {
+      type: Number,
+      enum: [
+        1,            // pending
+        2,            // approved
+        3,            // rejected
+        4             // inactive
+      ],
+    },
     approvedAt: Date,
   },
   {

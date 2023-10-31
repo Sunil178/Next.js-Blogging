@@ -73,3 +73,8 @@ body {
     padding-top: 20px;
     padding-left: 8px;
 }
+
+.required:after {
+    content:" *";
+    color: red;
+}

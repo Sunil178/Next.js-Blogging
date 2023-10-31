@@ -1,8 +1,8 @@
-import dbConnect from '../libs/db-connect'
-import Post from '../models/post'
+import dbConnect from 'libs/db-connect'
+import Post from 'models/post'
 import DOMPurify from 'dompurify'
 const { JSDOM } = require('jsdom')
-import styles from '../styles/post.module.css'
+import styles from 'styles/post.module.css'
 
 export default function Home({ content }) {
   return (

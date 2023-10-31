@@ -4,14 +4,14 @@ import { markdownToDraft, draftToMarkdown } from 'markdown-draft-js';
 
 import { EditorState, convertToRaw, convertFromRaw } from 'draft-js';
 import { Editor } from 'react-draft-wysiwyg';
-import convertToNextClassName from '../libs/helpers';
+import convertToNextClassName from 'libs/helpers';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
 import PrismHigLighter from './pkg-syntax-highlighter-simple'
-import toolbar from './draft-toolbar'
-import { Center } from './utils';
+import toolbar from 'components/Trials/draft-toolbar'
+import { Center } from 'components/utils';
 
-import styles from '../styles/draft.module.css';
+import styles from 'styles/draft.module.css';
 const classes = convertToNextClassName.classes(styles);
 
 function ReactDraft() {

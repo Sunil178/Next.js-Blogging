@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { WithContext as ReactTags } from 'react-tag-input';
 
 // TODO: Need to change this defaults - start
@@ -22,6 +22,7 @@ const delimiters = [KeyCodes.comma, KeyCodes.enter, KeyCodes.tab];
 
 export const PostTag = () => {
   const [tags, setTags] = useState([]);
+  const [inputTags, setInputTags] = useState([]);
 
   const handleDelete = i => {
     setTags(tags.filter((tag, index) => index !== i));
@@ -45,8 +46,13 @@ export const PostTag = () => {
     console.log('The tag at index ' + index + ' was clicked');
   };
 
+  useEffect(() => {
+    setInputTags( tags.map(obj => obj.id) );
+  }, [tags]);
+
   return (
       <div className='postTags'>
+        <input type="hidden" name='tags' value={inputTags} />
         <ReactTags
           tags={tags}
           suggestions={suggestions}

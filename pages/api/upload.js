@@ -1,4 +1,4 @@
-import { parseForm } from "../../libs/store-form-media";
+import { parseForm } from "libs/store-form-media";
 
 export default async function handler(req, res) {
 

@@ -1,5 +1,5 @@
-import dbConnect from '../libs/db-connect'
-import Post from '../models/post'
+import dbConnect from 'libs/db-connect'
+import Post from 'models/post'
 
 export default function Home({ content }) {
   return (

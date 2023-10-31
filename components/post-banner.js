@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Image from 'next/image'
-import styles from '../styles/post-banner.module.css'
+import styles from 'styles/post-banner.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPencil, faSpinner, faXmark } from '@fortawesome/free-solid-svg-icons'
 

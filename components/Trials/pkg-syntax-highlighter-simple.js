@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import ReactMarkdown from 'react-markdown'
 import Prism from 'prismjs'
-import '../plugin/prism-line-numbers.min.js'
+import 'plugin/prism-line-numbers.min.js'
 
 export default function PrismHigLighter({ markdownContent }) {
 

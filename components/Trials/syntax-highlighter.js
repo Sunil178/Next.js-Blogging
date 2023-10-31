@@ -1,9 +1,9 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import PrismHigLighterRaw from './syntax-highlighter-raw'
-import PrismHigLighterLine from './syntax-highlighter-with-lines'
-import PrismHigLighterRenderer from './syntax-highlighter-prism-react-renderer'
-import PrismHigLighter from './syntax-highlighter-simple'
+import styles from 'styles/Home.module.css'
+import PrismHigLighterRaw from 'components/Trials/syntax-highlighter-raw'
+import PrismHigLighterLine from 'components/Trials/syntax-highlighter-with-lines'
+import PrismHigLighterRenderer from 'components/Trials/syntax-highlighter-prism-react-renderer'
+import PrismHigLighter from 'components/Trials/syntax-highlighter-simple'
 
 export default function SyntaxHome() {
   var markdownContent = `
