@@ -4,6 +4,7 @@ import { Schema, models, model } from 'mongoose';
 const schema = new Schema(
   {
     tempUserId: { type: Schema.Types.ObjectId, ref: "TempUser" },
+    username: String,
     firstName: String,
     middleName: String,
     lastName: String,

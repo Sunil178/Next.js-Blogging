@@ -7,8 +7,8 @@ export const authOptions = {
             authorize(credentials, req) {
                 if (credentials.Password === "password") {
                     return {
-                        name: "John Doe",
-                        email: "john@doe.com",
+                        name: "First Last",
+                        email: "first@gmail.com",
                     };
                 }
             }

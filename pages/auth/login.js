@@ -8,7 +8,7 @@ export default function Login({ csrfToken }) {
             <div className={styles.card}>
 
                 <div className={styles.login}>
-                    <form action='/api/login' method='POST'>
+                    <form action='/api/auth/login' method='POST'>
 
                         <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
 
