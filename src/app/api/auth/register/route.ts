@@ -5,7 +5,7 @@ import Validator from "validatorjs";
 import { hashSync } from "bcrypt";
 
 export async function POST(request: NextRequest) {
-    // try {
+    try {
         const body = Object.fromEntries(await request.formData());
         const rules = {
             username: "required",
@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
             password: hashSync(body.password, 10),
         });
         return NextResponse.redirect(new URL("/posts", request.url));
-    // } catch (error) {
-        // return NextResponse.json({ data: error, message: "Something went wrong" }, { status: 500 });
-    // }
+    } catch (error) {
+        return NextResponse.json({ data: error, message: "Something went wrong" }, { status: 500 });
+    }
 }

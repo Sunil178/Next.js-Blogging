@@ -3,12 +3,13 @@ import dbConnect from "@/libs/db-connect";
 import Post from "@/models/Post";
 
 interface DeletePost {
-    params: {
+    params: Promise<{
         slug: string;
-    };
+    }>;
 }
 
-export async function DELETE(request: NextRequest, { params }: DeletePost) {
+export async function DELETE(request: NextRequest, props: DeletePost) {
+    const params = await props.params;
     try {
         const { slug } = params;
         if (!slug) {

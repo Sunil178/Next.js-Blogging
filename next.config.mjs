@@ -10,7 +10,6 @@ const __dirname = resolve();
 
 const nextConfig = {
   reactStrictMode: false,
-  swcMinify: true,
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.plugins.push(
       new CopyPlugin({

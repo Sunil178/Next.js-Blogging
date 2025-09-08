@@ -9,15 +9,16 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     ...authConfig,
     providers: [
         Credentials({
+            name: "Credentials",
             credentials: {
                 username: { label: "Username", type: "text" },
                 password: { label: "Password", type: "password" },
             },
             async authorize(credentials) {
                 await dbConnect();
-                const user = await User.findOne({ email: credentials?.username });
-                if (user && compareSync(credentials?.password, user.password)) {
-                    console.log("🚀 ~ authorize ~ user:", user)
+                const user = await User.findOne({ email: credentials.username });
+
+                if (user && compareSync(credentials.password as string, user.password)) {
                     return {
                         id: user.id,
                         name: user.name,

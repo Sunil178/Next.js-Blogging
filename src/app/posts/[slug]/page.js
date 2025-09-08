@@ -4,7 +4,8 @@ import DOMPurify from 'dompurify'
 const { JSDOM } = require('jsdom')
 import styles from '@/styles/post.module.css'
 
-export default async function Article({ params }) {
+export default async function Article(props) {
+  const params = await props.params;
   const content = await fetchPost(params.slug)
   return (
       <div className={styles.container}>
