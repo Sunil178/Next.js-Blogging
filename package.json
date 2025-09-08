@@ -2,11 +2,13 @@
   "name": "Next.js-Blogging",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed": "tsx --env-file=.env ./src/seeds/seeder.ts"
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.1",
@@ -15,7 +17,7 @@
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@tinymce/tinymce-react": "^4.3.2",
-    "antd": "^5.20.4",
+    "antd": "^5.27.3",
     "babel-plugin-prismjs": "^2.1.0",
     "bcrypt": "^5.1.1",
     "copy-webpack-plugin": "^11.0.0",
@@ -32,7 +34,7 @@
     "jsonwebtoken": "^9.0.2",
     "markdown-draft-js": "^2.4.0",
     "mime": "^3.0.0",
-    "mongoose": "^8.4.1",
+    "mongoose": "^8.18.1",
     "mongoose-delete": "^1.0.2",
     "next": "^15.3.0",
     "next-auth": "^5.0.0-beta.25",
@@ -56,7 +58,8 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^6.0.0",
-    "@types/node": "^20.16.11",
+    "@types/mongoose-delete": "^1.0.6",
+    "@types/node": "^20.19.13",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.2",
     "@types/uuid": "^10.0.0",
@@ -65,7 +68,8 @@
     "eslint": "^8",
     "eslint-config-next": "15.3.0",
     "sass": "^1.77.4",
-    "typescript": "^5"
+    "tsx": "^4.20.5",
+    "typescript": "^5.9.2"
   },
   "overrides": {
     "@types/react": "^19.1.0",

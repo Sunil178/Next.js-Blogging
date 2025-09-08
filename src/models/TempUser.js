@@ -1,4 +1,4 @@
-import mongoose_delete from 'mongoose-delete';
+import mongooseDelete from 'mongoose-delete';
 import { Schema, models, model } from 'mongoose';
 
 const schema = new Schema(
@@ -11,6 +11,6 @@ const schema = new Schema(
   }
 );
 
-schema.plugin(mongoose_delete, { deletedAt : true, overrideMethods: true });
+schema.plugin(mongooseDelete, { deletedAt : true, overrideMethods: true });
 
 module.exports = models?.TempUser || model('TempUser', schema, 'temp_users');

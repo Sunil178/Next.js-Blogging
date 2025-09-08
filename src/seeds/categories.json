@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Technology",
+    "slug": "technology",
+    "content": "All the technology related posts like AI, Blockchain, Softwares, etc."
+  },
+  {
+    "title": "Science",
+    "slug": "science",
+    "content": "Scientific posts, articles, proofs, inventions, research papers, etc."
+  },
+  {
+    "title": "Opinion",
+    "slug": "opinion",
+    "content": "Personal, professional, social, collaborative opinions, etc."
+  },
+  {
+    "title": "Medical",
+    "slug": "medical",
+    "content": "Information about medicines, disease, hospitals, doctors, etc."
+  },
+  {
+    "title": "Political",
+    "slug": "political",
+    "content": "Latest trends on political news."
+  },
+  {
+    "title": "Sports",
+    "slug": "sports",
+    "content": "Updates, insights, and stories from the world of sports."
+  },
+  {
+    "title": "Travel",
+    "slug": "travel",
+    "content": "Travel guides, destination reviews, and tips for globetrotters."
+  },
+  {
+    "title": "Entertainment",
+    "slug": "entertainment",
+    "content": "Movies, TV shows, music, and everything in the entertainment world."
+  }
+]

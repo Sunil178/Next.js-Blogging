@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const MONGODB_URI = process.env.MONGODB_URI
 
 if (!MONGODB_URI) {
-    console.error('Please define the MONGODB_URI environment variable inside .env.local')
+    console.error('Please define the MONGODB_URI environment variable inside .env')
 }
 
 /**
@@ -19,6 +19,7 @@ if (!cached) {
 
 async function dbConnect() {
     if (cached.conn) {
+        console.log('Using cached DB connection');
         return cached.conn
     }
 
@@ -27,6 +28,7 @@ async function dbConnect() {
             bufferCommands: false,
         }
         cached.promise = mongoose.connect(MONGODB_URI, opts).then(mongoose => {
+            console.log('New MongoDB connection established');
             return mongoose
         })
     }

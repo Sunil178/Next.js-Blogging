@@ -1,30 +1,41 @@
 import { NextRequest, NextResponse } from "next/server";
-import dbConnect from "@/libs/db-connect";
 import Post from "@/models/Post";
 
 export async function GET(request: NextRequest) {
-    const limit: number = parseInt(request.nextUrl.searchParams.get('limit') || '10');
-    const offset: number = parseInt(request.nextUrl.searchParams.get('offset') || '0');
+    const { searchParams } = request.nextUrl;
 
-    await dbConnect();
-    const posts = await Post.find({}, [
-        '-_id',
-        'slug',
-        'title',
-        'bannerImage',
-        'upvoteCount',
-        'downvoteCount',
-        'commentCount',
-        'visitorCount',
-        'published',
-        'approval',
-        'visibility',
-        'createdAt'
-    ], { limit, skip: offset, sort: { 'createdAt' : -1 } }).lean();
+    const page = parseInt(searchParams.get("page") || "1", 10);
+    const pageSize = parseInt(searchParams.get("pageSize") || "10", 10);
+    const sortField = searchParams.get("sortField") || "createdAt";
+    const sortOrder = searchParams.get("sortOrder") === "ascend" ? 1 : -1;
+    const search = searchParams.get("search") || "";
+    const approval = searchParams.get("approval");
+    const published = searchParams.get("published");
 
-    const totalPosts = await Post.countDocuments();
+    const filter: any = {};
 
-    return NextResponse.json({ data: posts, count: totalPosts, message: "Success" });
+    if (search) {
+        filter.title = { $regex: search, $options: "i" };
+    }
+
+    if (approval) {
+        filter.approval = parseInt(approval, 10);
+    }
+
+    if (published) {
+        filter.published = published === "true";
+    }
+
+    const total = await Post.countDocuments(filter);
+    const posts = await Post.find(filter)
+        .populate("userId", "email username name")
+        .populate("categoryId", "title slug")
+        .sort({ [sortField]: sortOrder })
+        .skip((page - 1) * pageSize)
+        .limit(pageSize)
+        .lean();
+
+    return NextResponse.json({ data: posts, total, message: "Success" });
 }
 export async function POST(request: NextRequest) {
     try {
@@ -32,7 +43,7 @@ export async function POST(request: NextRequest) {
         if (!body.has('post_data')) {
             return NextResponse.json({ data: null, message: 'Post page data is required' }, { status: 400 });
         }
-        await dbConnect();
+
         await Post.create({
             'slug': body.get('slug'),
             'title': body.get('title'),
