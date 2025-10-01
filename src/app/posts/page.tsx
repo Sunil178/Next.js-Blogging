@@ -5,10 +5,12 @@ import type { ColumnsType, TablePaginationConfig } from "antd/es/table";
 import type { SorterResult, FilterValue } from "antd/es/table/interface";
 import { SearchOutlined } from "@ant-design/icons";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 interface Post {
   _id: string;
   title: string;
+  slug: string;
   categoryId?: { title: string };
   userId?: { email: string; username?: string; name?: string };
   approval: number;
@@ -86,6 +88,7 @@ export default function PostsTable() {
       dataIndex: "title",
       key: "title",
       sorter: true,
+      render: (val, record) => <Link href={`/posts/${record.slug}`} passHref>{val}</Link>,
     },
     {
       title: "Category",

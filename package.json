@@ -11,7 +11,7 @@
     "seed": "tsx --env-file=.env ./src/seeds/seeder.ts"
   },
   "dependencies": {
-    "@ant-design/nextjs-registry": "^1.0.1",
+    "@ant-design/nextjs-registry": "^1.1.0",
     "@fontsource/roboto": "^5.0.8",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import SessionWrapper from "@/components/SessionWrapper";
+import GlobalLoader from "@/components/GlobalLoader";
 
 import "@fontsource/roboto/400.css";
 // import '@/styles/globals.css'
@@ -31,7 +32,10 @@ export default function RootLayout({
         <SessionWrapper>
             <html lang="en">
                 <body>
-                    <AntdRegistry>{children}</AntdRegistry>
+                    <AntdRegistry>
+                        <GlobalLoader />
+                        {children}
+                    </AntdRegistry>
                 </body>
             </html>
         </SessionWrapper>
