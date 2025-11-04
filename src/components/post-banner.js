@@ -21,8 +21,8 @@ export function BannerImage({ defaultImage }) {
             fetch("/api/posts/upload", { method: "POST", body })
                 .then((response) => response.json())
                 .then((response) => {
-                    setBannerLocation(response.data);
-                    setImageURL(response.data);
+                    setBannerLocation(response.location);
+                    setImageURL(response.location);
                 });
         }
     };

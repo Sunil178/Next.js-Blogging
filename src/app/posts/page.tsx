@@ -1,6 +1,6 @@
 "use client";
 
-import { Table, Tag, Input, Space } from "antd";
+import { Table, Tag, Input, Space, Flex, Button } from "antd";
 import type { ColumnsType, TablePaginationConfig } from "antd/es/table";
 import type { SorterResult, FilterValue } from "antd/es/table/interface";
 import { SearchOutlined } from "@ant-design/icons";
@@ -176,15 +176,25 @@ export default function PostsTable() {
 
   return (
     <div>
-      <Space style={{ marginBottom: 16 }}>
-        <Input
-          placeholder="Search by Title"
-          prefix={<SearchOutlined />}
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          allowClear
-        />
-      </Space>
+      <Flex justify="space-between" align="center" style={{ marginBottom: 16 }}>
+        <Space>
+          <Input
+            placeholder="Search by Title"
+            prefix={<SearchOutlined />}
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            allowClear
+          />
+        </Space>
+        <Link href="/posts/add" passHref>
+          <Button
+              type="primary"
+              size="large"
+          >
+            Add Post
+          </Button>
+        </Link>
+      </Flex>
       <Table
         columns={columns}
         dataSource={data}
