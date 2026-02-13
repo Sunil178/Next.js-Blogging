@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
+import User from "@/models/User";           // Register User model
+import Category from "@/models/Category";   // Register Category model
 import Post from "@/models/Post";
 
 export async function GET(request: NextRequest) {
@@ -28,8 +30,8 @@ export async function GET(request: NextRequest) {
 
     const total = await Post.countDocuments(filter);
     const posts = await Post.find(filter)
-        .populate("userId", "email username name")
-        .populate("categoryId", "title slug")
+        .populate({ path: "userId", model: User, select: "email username name" })
+        .populate({ path: "categoryId", model: Category, select: "title slug" })
         .sort({ [sortField]: sortOrder })
         .skip((page - 1) * pageSize)
         .limit(pageSize)

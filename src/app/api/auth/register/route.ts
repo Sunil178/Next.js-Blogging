@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
             firstName: body.firstName,
             lastName: body.lastName,
             email: body.email,
-            password: hashSync(body.password, 10),
+            password: hashSync(body.password as string, 10),
         });
         return NextResponse.redirect(new URL("/posts", request.url));
     } catch (error) {

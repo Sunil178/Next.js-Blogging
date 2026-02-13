@@ -24,14 +24,6 @@ export function TinyMCEEditor(props) {
             document.querySelector('.tox-toolbar-overlord').firstChild.lastChild.classList.add('submit-btn-container');
           }, 1000);
         }}
-        onKeyUp={(event, editor) => {
-          const scrollEditor = editor.getContainer().scrollHeight;
-          const scrollerHeight = window.innerHeight * (window.innerHeight / document.body.offsetHeight);
-          const scrollPos = document.documentElement.scrollTop + scrollerHeight
-          if (scrollPos > scrollEditor) {
-            window.scrollTo({top: scrollEditor, behavior: 'smooth'});
-          }
-        }}
         init={{
           branding: false,
           force_br_newlines : false,

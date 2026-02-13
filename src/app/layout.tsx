@@ -13,6 +13,7 @@ import "@/styles/prism.js/prism-line-numbers.min.css";
 import "highlight.js/styles/default.css";
 import "@/../public/assets/libs/prism.js/prism-tomorrow-night.js";
 import "@/../public/assets/libs/prism.js/prism-line-numbers.min.js";
+import Navbar from "@/components/Navbar";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -34,6 +35,7 @@ export default function RootLayout({
                 <body>
                     <AntdRegistry>
                         <GlobalLoader />
+                        <Navbar />
                         {children}
                     </AntdRegistry>
                 </body>

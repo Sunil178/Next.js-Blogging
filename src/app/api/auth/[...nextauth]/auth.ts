@@ -1,5 +1,5 @@
 import NextAuth from "next-auth";
-import Credentials from "next-auth/providers/credentials";
+import CredentialsProvider from "next-auth/providers/credentials";
 import dbConnect from "@/libs/db-connect";
 import User from "@/models/User";
 import authConfig from "@/auth.config";
@@ -8,7 +8,7 @@ import { compareSync } from "bcrypt";
 export const { handlers, signIn, signOut, auth } = NextAuth({
     ...authConfig,
     providers: [
-        Credentials({
+        CredentialsProvider({
             name: "Credentials",
             credentials: {
                 username: { label: "Username", type: "text" },
@@ -31,7 +31,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     ],
     callbacks: {
         async session({ session, token, user }) {
-            session.user = user;
+            if (token && session.user) {
+                session.user.id = token.id as string;
+            }
             return session;
         },
         async jwt({ token, user, account, profile }) {
@@ -40,5 +42,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             }
             return token;
         },
+    },
+    pages: {
+        signIn: '/auth/login',
     },
 });

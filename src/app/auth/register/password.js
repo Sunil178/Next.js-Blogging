@@ -4,7 +4,7 @@ import styles from '@/styles/login.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
-export default function Password() {
+export default function Password({ disabled = false }) {
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
 
@@ -12,7 +12,7 @@ export default function Password() {
         <div className={styles.x_section}>
             <div className={styles.section}>
                 <label htmlFor='password' className='required'>Password</label>
-                <input type={passwordVisible ? "text" : "password"} id='password' name='password' required />
+                <input type={passwordVisible ? "text" : "password"} id='password' name='password' required disabled={disabled} />
                 <span className={styles.eye_icon}>
                     <FontAwesomeIcon icon={passwordVisible ? faEye : faEyeSlash} onClick={() => setPasswordVisible(!passwordVisible)} />
                 </span>
@@ -20,7 +20,7 @@ export default function Password() {
 
             <div className={styles.section}>
                 <label htmlFor='password_confirmation' className='required'>Confirm Password</label>
-                <input type={confirmPasswordVisible ? "text" : "password"} id='password_confirmation' name='password_confirmation' required />
+                <input type={confirmPasswordVisible ? "text" : "password"} id='password_confirmation' name='password_confirmation' required disabled={disabled} />
                 <span className={styles.eye_icon}>
                     <FontAwesomeIcon icon={confirmPasswordVisible ? faEye : faEyeSlash} onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)} />
                 </span>
