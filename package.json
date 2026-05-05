@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "seed": "tsx --env-file=.env ./src/seeds/seeder.ts"
+    "seed": "tsx --env-file=.env ./src/seeds/seeder.ts",
+    "postinstall": "cp -r node_modules/tinymce/* public/assets/libs/tinymce/"
   },
   "dependencies": {
     "@aloushek/react-draft-wysiwyg-next": "^1.18.0",
@@ -53,6 +54,7 @@
     "react-syntax-highlighter": "^16.1.1",
     "react-tag-input": "^6.10.6",
     "styled-components": "^6.4.1",
+    "tinymce": "^8.5.0",
     "uuid": "^14.0.0",
     "validatorjs": "^3.22.1"
   },
