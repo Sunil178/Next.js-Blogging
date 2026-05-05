@@ -45,7 +45,7 @@ export default function GlobalLoader() {
         zIndex: 9999,
       }}
     >
-      <Spin fullscreen size="large" tip="Loading..." />
+      <Spin fullscreen size="large" description="Loading..." />
     </div>
   );
 }

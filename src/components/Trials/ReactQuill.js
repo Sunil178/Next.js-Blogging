@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import hljs from 'highlight.js'
 import 'highlight.js/styles/monokai-sublime.css'
 // import 'highlight.js/styles/darcula.css';
-import 'react-quill/dist/quill.snow.css';
+import 'react-quill-new/dist/quill.snow.css';
 import ImageResize from 'quill-image-resize-module-react';
-import ReactQuill, { Quill } from 'react-quill'
+import ReactQuill, { Quill } from 'react-quill-new';
 
 Quill.register('modules/imageResize', ImageResize);
 
